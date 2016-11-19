@@ -1,5 +1,4 @@
 import { MaterialModule } from '@angular/material';
-import {Ng2MaterialModule} from "ng2-material";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,8 +20,7 @@ import { ListsComponent } from './lists/lists.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule,
-    Ng2MaterialModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
