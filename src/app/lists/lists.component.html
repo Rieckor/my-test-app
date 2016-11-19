@@ -1,3 +1,73 @@
-<p>
-  lists works!
-</p>
+
+
+<md-content>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <button md-button>{{title1}}</button>
+    <button md-button md-no-ink class="md-primary">Primary (md-noink)</button>
+    <button md-button disabled="true" class="md-primary">Disabled</button>
+    <button md-button class="md-warn">{{title4}}</button>
+    <div class="label">Flat</div>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <button md-raised-button class="md-raised">Button</button>
+    <button md-raised-button class="md-raised md-primary">Primary</button>
+    <button md-raised-button disabled="true" class="md-raised md-primary">Disabled</button>
+    <button md-raised-button class="md-raised md-warn">Warn</button>
+    <div class="label">Raised</div>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <button md-fab class="md-fab" aria-label="Eat cake">
+      <md-icon>cake</md-icon>
+    </button>
+    <button md-fab class="md-primary" aria-label="Use Android">
+      <md-icon>android</md-icon>
+    </button>
+    <button md-fab disabled="true" aria-label="Comment">
+      <md-icon>comment</md-icon>
+    </button>
+    <button md-fab class="md-primary md-hue-2" aria-label="Profile">
+      <md-icon>people</md-icon>
+    </button>
+    <button md-fab class="md-mini" aria-label="Eat cake">
+      <md-icon>cake</md-icon>
+    </button>
+    <button md-fab class="md-mini md-primary" aria-label="Use Android">
+      <md-icon>android</md-icon>
+    </button>
+    <div class="label">FAB</div>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <a md-button [href]="googleUrl" target="_blank">Default Link</a>
+    <a md-button class="md-primary" [href]="googleUrl" target="_blank">Primary Link</a>
+    <button md-button>Default Button</button>
+    <div class="label">Link vs. Button</div>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <button md-button class="md-primary md-hue-1">Primary Hue 1</button>
+    <button md-raised-button class="md-warn md-hue-2">Warn Hue 2</button>
+    <button md-button class="md-accent">Accent</button>
+    <button md-raised-button class="md-accent md-hue-1">Accent Hue 1</button>
+    <div class="label">Themed</div>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+    <button md-button class="md-icon-button md-primary" aria-label="Settings">
+      <md-icon>menu</md-icon>
+    </button>
+    <button md-button class="md-icon-button md-accent" aria-label="Favorite">
+      <md-icon>favorite</md-icon>
+    </button>
+    <button md-button class="md-icon-button" aria-label="More">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <a md-button href="http://google.com"
+       title="Launch Google.com in new window"
+       target="_blank"
+       disabled="true"
+       aria-label="Google.com"
+       class="md-icon-button launch">
+      <md-icon>launch</md-icon>
+    </a>
+    <div class="label">Icon Button</div>
+  </section>
+</md-content>
+
