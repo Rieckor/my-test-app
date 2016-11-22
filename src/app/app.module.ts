@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
-import { NavComponent } from './nav/nav.component';
 import { ListsComponent } from './lists/lists.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     ListsComponent
   ],
   imports: [
@@ -20,7 +20,8 @@ import { ListsComponent } from './lists/lists.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,16 +7,8 @@
          [routerLink]="[navItem.route]">
         {{navItem.name}}
       </a>
-
-      <hr>
-
-      <a md-list-item
-         (click)="start.close()"
-         [routerLink]="['baseline']">
-        Baseline
-      </a>
     </md-nav-list>
-    <button md-button (click)="start.close()">CLOSE</button>
+
   </md-sidenav>
   <div>
     <md-toolbar color="primary">
@@ -25,7 +17,7 @@
       </button>
       <span class="example-fill-remaining-space"></span>
       <button md-icon-button (click)="start.open()">
-        <md-icon class="md-24" >menu</md-icon>
+        <md-icon class="md-24" >settings</md-icon>
       </button>
     </md-toolbar>
 

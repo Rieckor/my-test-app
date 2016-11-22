@@ -1,2 +1,12 @@
-
-
+<md-list>
+  <div class="search-results"  infinite-scroll  [infiniteScrollDistance]="1" [scrollWindow]="false"    [infiniteScrollThrottle]="10"     (scrolled)="onScrollDown()">
+  <md-list-item *ngFor="let list of lists">
+    <img md-list-avatar src="http://www.qqtu8.net/f/20141103133745_1.jpg" >
+    <h3 md-line> {{list.name}} </h3>
+    <p md-line>
+      <span> {{list.name}}</span>
+      <span class="demo-2"> -- {{list.content}} </span>
+    </p>
+  </md-list-item>
+  </div>
+</md-list>
