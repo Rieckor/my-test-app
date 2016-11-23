@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
 import { ListsComponent } from './lists/lists.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListsComponent
+    ListsComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
