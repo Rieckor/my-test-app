@@ -23,11 +23,14 @@ export class ListsComponent implements OnInit {
   }
   onScrollDown () {
     console.log('scrolled!!');
-    let oldlists = this.lists;
-    this.getLists();
-    this.lists.forEach(element => {
-      oldlists.push(element);
-    });
-    this.lists = oldlists;
+    this.listService.getLists()
+                     .subscribe(
+                       lists => {
+                         lists.forEach(element => {
+                           this.lists.push(element);
+                         });
+                       },
+                       error =>  this.errorMessage = <any>error);
+  }
   }
 }
