@@ -21,4 +21,5 @@ export class AppComponent {
     {name: 'Gestures', route: 'gestures'},
     {name: 'Grid List', route: 'grid-list'}
   ];
+
 }

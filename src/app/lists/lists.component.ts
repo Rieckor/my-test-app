@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title }     from '@angular/platform-browser';
 
 import { List } from './list';
 import { ListService } from './lists.service';
-
 
 @Component({
   selector: 'app-lists',
@@ -14,8 +14,12 @@ import { ListService } from './lists.service';
 export class ListsComponent implements OnInit {
   errorMessage: string;
   lists: List[];
-  constructor( private router: Router, private listService: ListService) { }
-  ngOnInit() { this.getLists(); }
+  constructor(private titleService: Title, private router: Router, private listService: ListService) { }
+  ngOnInit() {this.setTitle('人脉列表'); this.getLists(); }
+
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
+  }
   getLists() {
     this.listService.getLists()
       .subscribe(
