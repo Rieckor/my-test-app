@@ -8,14 +8,18 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
 import { ListsComponent } from './lists/lists.component';
-import { DetailComponent } from './detail/detail.component';
+import { RegeditComponent } from './regedit/regedit.component';
+import { SetComponent } from './set/set.component';
+import { ListsViewComponent } from './lists/lists-view/lists-view.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListsComponent,
-    DetailComponent
+    RegeditComponent,
+    SetComponent,
+    ListsViewComponent
   ],
   imports: [
     BrowserModule,

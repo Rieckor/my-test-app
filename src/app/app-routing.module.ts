@@ -1,16 +1,26 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListsComponent } from './lists/lists.component';
-import { DetailComponent } from './detail/detail.component';
+import { RegeditComponent } from './regedit/regedit.component';
+import { SetComponent } from './set/set.component';
 
-const routes: Routes = [
+const appRoutes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full' },
-  { path: 'lists',  component: ListsComponent },
-  { path: 'detail/:id',  component: DetailComponent },
+  {
+    path: 'lists',
+    loadChildren: 'app/lists/lists.module'
+  },
+  {
+    path: 'regedit',
+    component: RegeditComponent
+  },
+  {
+    path: 'set',
+    component: SetComponent
+  }
 ];
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(appRoutes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

@@ -1,44 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Title }     from '@angular/platform-browser';
+// Add the RxJS Observable operators.
+import '../rxjs-operators';
 
-import { List } from './list';
-import { ListService } from './lists.service';
+import { Component } from '@angular/core';
+import {MdIconRegistry} from '@angular/material';
 
 @Component({
-  selector: 'app-lists',
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.css'],
-  providers: [ListService]
+  providers: [MdIconRegistry]
 })
-export class ListsComponent implements OnInit {
-  errorMessage: string;
-  lists: List[];
-  constructor(private titleService: Title, private router: Router, private listService: ListService) { }
-  ngOnInit() {this.setTitle('人脉列表'); this.getLists(); }
-
-  public setTitle( newTitle: string) {
-    this.titleService.setTitle( newTitle );
-  }
-  getLists() {
-    this.listService.getLists()
-      .subscribe(
-      lists => this.lists = lists,
-      error => this.errorMessage = <any>error);
-  }
-  onScrollDown() {
-    console.log('scrolled!!');
-    this.listService.getLists()
-      .subscribe(
-      lists => {
-        lists.forEach(element => {
-          this.lists.push(element);
-        });
-      },
-      error => this.errorMessage = <any>error);
-  }
-  getDetail(){
-    this.router.navigate(['/detail', 1]);
+export class ListsComponent {
+  navItems = [
+    {name: '人脉列表', route: 'index'},
+    {name: '群落列表', route: 'group'},
+    {name: '精准列表', route: 'precision'},
+    {name: 'Checkbox', route: 'checkbox'},
+    {name: 'Dialog', route: 'dialog'},
+    {name: 'Gestures', route: 'gestures'},
+    {name: 'Grid List', route: 'grid-list'}
+  ];
+  upTop() {
+    console.log('"upTop down!"');
   }
 }
 
