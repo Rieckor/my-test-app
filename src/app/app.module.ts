@@ -1,33 +1,26 @@
-import { MaterialModule } from '@angular/material';
-import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
+/* App Root */
 import { AppComponent } from './app.component';
+
+/* Feature Modules */
+import { CoreModule }       from './core/core.module';
+import { ListsModule } from './lists/lists.module';
+
+/* Routing Module */
 import { AppRoutingModule }     from './app-routing.module';
-import { ListsComponent } from './lists/lists.component';
-import { RegeditComponent } from './regedit/regedit.component';
-import { SetComponent } from './set/set.component';
-import { ListsViewComponent } from './lists/lists-view/lists-view.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListsComponent,
-    RegeditComponent,
-    SetComponent,
-    ListsViewComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
     AppRoutingModule,
-    MaterialModule,
-    InfiniteScrollModule
+    ListsModule,
+    CoreModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

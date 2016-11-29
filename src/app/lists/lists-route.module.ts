@@ -12,19 +12,10 @@ const listsCenterRoutes: Routes = [
     children: [
       {
         path: '',
-        component: ListsViewComponent
+        redirectTo: 'index'
       }, {
-        path: 'index',
+        path: ':type',
         component: ListsViewComponent
-      }, {
-        path: 'group',
-        component: ListsViewComponent
-      }, {
-        path: 'precision',
-        component: ListsViewComponent
-      }, {
-        path: 'detail/:id',
-        component: DetailComponent
       }
     ]
   }
