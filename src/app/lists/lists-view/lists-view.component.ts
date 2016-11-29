@@ -23,6 +23,7 @@ export class ListsViewComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe(p => {
+          this.title.setTitle(p);
           console.log('params', p );
       });
     this.getLists();
