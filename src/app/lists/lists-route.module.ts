@@ -11,11 +11,11 @@ const listsCenterRoutes: Routes = [
     component: ListsComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'index'
-      }, {
         path: ':type',
         component: ListsViewComponent
+      }, {
+        path: ':type/:id',
+        component: DetailComponent
       }
     ]
   }

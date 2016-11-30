@@ -10,7 +10,7 @@ export class DetailComponent implements OnInit {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.setTitle('人脉详情');
+    this.setTitle('详情列表');
   }
 
   public setTitle( newTitle: string) {

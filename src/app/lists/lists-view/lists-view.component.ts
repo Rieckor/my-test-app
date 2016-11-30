@@ -14,6 +14,7 @@ import { ListService } from './lists.service';
 export class ListsViewComponent implements OnInit {
   errorMessage: string;
   lists: List[];
+  tab: string;
   constructor(
     private title: TitleService,
     private route: ActivatedRoute,
@@ -23,7 +24,8 @@ export class ListsViewComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe(p => {
-          this.title.setTitle(p);
+          this.title.setTitle(p['type']);
+          this.tab = p['type'];
           console.log('params', p );
       });
     this.getLists();
@@ -45,7 +47,8 @@ export class ListsViewComponent implements OnInit {
       },
       error => this.errorMessage = <any>error);
   }
-  getDetail(){
-    this.router.navigate(['/detail', 1]);
+  getDetail() {
+      // Navigate with relative link
+    this.router.navigate([1], { relativeTo: this.route });
   }
 }
