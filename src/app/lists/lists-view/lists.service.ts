@@ -5,7 +5,7 @@ import { List } from './list';
 
 @Injectable()
 export class ListService {
-  private listsUrl = 'list.json';  // URL to web API
+  private listsUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/index';  // URL to web API
   constructor (private http: Http) {}
   getLists (): Observable<List[]> {
     return this.http.get(this.listsUrl)

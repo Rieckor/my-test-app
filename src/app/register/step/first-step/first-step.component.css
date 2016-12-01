@@ -1,0 +1,22 @@
+.page{
+    background-color: #f8f8f8;
+}
+.page__hd {
+    padding: 40px;
+    display: flex;
+}
+.cricle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.avatar__name{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2rem;
+}
+.avatar__sub{
+    margin-left: 10px;
+    color: #888;
+}
