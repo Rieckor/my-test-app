@@ -23,4 +23,5 @@ import { RegisterRouteModule } from './register-route.module';
 
   ]
 })
-export class RegisterModule {}
+export class RegisterModule { }
+
