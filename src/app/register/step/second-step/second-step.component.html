@@ -3,18 +3,37 @@
 
     <img md-card-sm-image class="cricle" src="http://weixin.zzu.edu.cn/Uploads/Editor/2016-08-23/57bc13a744580.jpg">
     <div>
-    <div class="avatar__name">Badge</div>
-    <div class="avatar__sub">subBadge</div>
+      <div class="avatar__name">Badge</div>
+      <div class="avatar__sub">subBadge</div>
+    </div>
+  </div>
+
+  <div class="weui-cells">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <p>上传二维码</p>
+      </div>
+      <div class="weui-cell__ft">
+        <app-avatar-upload ></app-avatar-upload>
+      </div>
+    </div>
+  </div>
+<div class="weui-cells__title">自我介绍</div>
+  <div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="请在此输入文字让大家认识您" rows="3"></textarea>
+        <div class="weui-textarea-counter"><span>0</span>/200</div>
+      </div>
     </div>
   </div>
 
 
 
-
-<div class="bottom__button">
-<a routerLink="/register/step2" class="weui-btn weui-btn_plain-primary">提交注册</a>
-</div>
+  <div class="bottom__button">
+    <a routerLink="/register/step3" class="weui-btn weui-btn_plain-default">提交注册</a>
+  </div>
 </div>
 <div class="weui-footer">
-            <p class="weui-footer__text">Copyright © 2014-2016 irenmai.top</p>
+  <p class="weui-footer__text">Copyright © 2014-2016 irenmai.top</p>
 </div>

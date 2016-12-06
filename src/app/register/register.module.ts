@@ -9,6 +9,8 @@ import { SecondStepComponent } from './step/Second-step/second-step.component';
 import { ThirdStepComponent } from './step/Third-step/Third-step.component';
 import { FourStepComponent } from './step/Four-step/Four-step.component';
 import { RegisterRouteModule } from './register-route.module';
+import { UploadAvatarComponent } from '../share/upload-avatar.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { RegisterRouteModule } from './register-route.module';
     FirstStepComponent,
     SecondStepComponent,
     ThirdStepComponent,
-    FourStepComponent
+    FourStepComponent,
+    UploadAvatarComponent,
+    FileSelectDirective
   ],
   exports: [
     RegisterComponent,

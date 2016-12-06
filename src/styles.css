@@ -2478,3 +2478,6 @@ input[type="search"]::-webkit-search-results-decoration {
     left: 0;
     right: 0;
 }
+li{
+  list-style-type: none;
+}
