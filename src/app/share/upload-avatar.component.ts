@@ -3,7 +3,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FileUploader } from 'ng2-file-upload';
 
 // const URL = '/api/';
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+const URL = 'http://test.irenmai.top/index.php?s=/Home/Test/saveImg';
 
 @Component({
     selector: 'app-avatar-upload',
