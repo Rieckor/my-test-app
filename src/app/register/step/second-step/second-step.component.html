@@ -22,16 +22,16 @@
   <div class="weui-cells weui-cells_form">
     <div class="weui-cell">
       <div class="weui-cell__bd">
-        <textarea class="weui-textarea" placeholder="请在此输入文字让大家认识您" rows="3"></textarea>
-        <div class="weui-textarea-counter"><span>0</span>/200</div>
+        <textarea #text class="weui-textarea" (keyup)="characterCount(text)" maxlength="200" placeholder="请在此输入文字让大家认识您" rows="3"></textarea>
+        <div class="weui-textarea-counter"><span>{{cnt}}</span>/200</div>
       </div>
     </div>
-  </div>
+</div>
 
 
 
   <div class="bottom__button">
-    <a routerLink="/register/step3" class="weui-btn weui-btn_plain-default">提交注册</a>
+    <a (click)="subReg(text.value)" class="weui-btn weui-btn_plain-default">提交注册</a>
   </div>
 </div>
 <div class="weui-footer">
