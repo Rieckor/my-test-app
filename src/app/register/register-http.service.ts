@@ -1,12 +1,13 @@
 import { Injectable }     from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
+import { RegReturn }     from './reg-return';
 
 @Injectable()
 export class RegisterService {
   private listsUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/setReg';  // URL to web API
   constructor (private http: Http) {}
-  postData (data: Array<any[]>): Observable<any[]> {
+  postData (data: Array<any[]>): Observable<RegReturn> {
     let headers = new Headers();
     headers.append( 'Content-Type', 'application/json' );
     let options = new RequestOptions({ headers: headers });
@@ -16,7 +17,7 @@ export class RegisterService {
   }
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
+    return body || { };
   }
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure

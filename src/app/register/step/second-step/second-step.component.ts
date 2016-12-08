@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterService } from '../../register-http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-second-step',
@@ -10,7 +11,8 @@ import { RegisterService } from '../../register-http.service';
 export class SecondStepComponent  {
   cnt =  0;
   constructor(
-    private regService: RegisterService
+    private regService: RegisterService,
+    private route: Router
   ) { }
 
   characterCount(event): number {
@@ -20,7 +22,13 @@ export class SecondStepComponent  {
   subReg(data) {
     this.regService.postData(data)
     .subscribe (
-      any => { console.log(any); },
+      res => {
+        console.log(res.status);
+        if (res.status === 1 ) {
+            // Navigate
+            this.route.navigateByUrl('/register/step3');
+        }
+      },
       error => {}
     );
   }

@@ -10,6 +10,9 @@ const appRoutes: Routes = [
   }, {
     path: 'register',
     loadChildren: 'app/register/register.module#RegisterModule',
+  }, {
+    path: 'set',
+    loadChildren: 'app/set/set.module#SetModule',
   }
 ];
 @NgModule({

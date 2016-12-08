@@ -19,7 +19,8 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "custom-component-theme.scss"
+        "custom-component-theme.scss",
+        "weui-icon_font.less"
       ],
       "scripts": [],
       "environments": {
