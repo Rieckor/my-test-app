@@ -2,6 +2,9 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SetComponent } from './set.component';
+import { BaseComponent } from './base/base.component';
+import { PrecisionComponent } from './Precision/Precision.component';
+import { IndexComponent } from './Index/Index.component';
 
 const setRoutes: Routes = [
   {
@@ -10,16 +13,13 @@ const setRoutes: Routes = [
     children: [
         {
           path: 'index',
-          component: SetComponent
+          component: IndexComponent
         }, {
-          path: 'step2',
-          component: SetComponent
+          path: 'base',
+          component: BaseComponent
         }, {
-          path: 'step3',
-          component: SetComponent
-        }, {
-          path: 'step4',
-          component: SetComponent
+          path: 'precision',
+          component: PrecisionComponent
         }
     ]
   }
