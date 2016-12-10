@@ -1,3 +1,64 @@
-<p>
-  base works!
-</p>
+<div class="page input" style="padding-top: 1rem;">
+	<div class="page__bd" ng-controller="UserInfoSet">
+	<div class="weui-panel weui-panel_access ">
+			<div class="weui-panel__bd">
+				<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg ">
+                    <div class="weui-media-box__hd" style="flex: 1;text-align: left;">
+						<p>头像</p>
+					</div>
+					<div class="weui-media-box__hd avatar" style="background-image: url(http://weixin.zzu.edu.cn/Uploads/Editor/2016-08-23/57bc13a744580.jpg); ">
+					</div>
+					<div class="weui-cell__ft"> </div>
+                </a>
+				<a class="weui-cell weui-media-box" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>昵称</p>
+                </div>
+                <div class="weui-cell__ft">1111</div>
+           		 </a>
+				<a class="weui-cell weui-media-box" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>地区</p>
+                </div>
+                <div class="weui-cell__ft">222</div>
+           		 </a>
+				<a class="weui-cell weui-media-box" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>性别</p>
+                </div>
+                <div class="weui-cell__ft">nan</div>
+           		 </a>
+			</div>
+		</div>
+		<div class="weui-panel weui-panel_access ">
+			<div class="weui-panel__bd">
+				<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+                    <div class="weui-media-box__hd" style="flex: 1;text-align: left;">
+						<p>微信二维码</p>
+					</div>
+<div class="weui-media-box__hd avatar" style="background-image: url(http://weixin.zzu.edu.cn/Uploads/Editor/2016-08-23/57bc13a744580.jpg); ">
+					</div>
+					<div class="weui-cell__ft"> </div>
+                </a>
+				<a class="weui-cell weui-cell_access" routerLink="select">
+                <div class="weui-cell__bd">
+                    <p>行业</p>
+                </div>
+                <div class="weui-cell__ft">11122</div>
+           		 </a>
+				<a class="weui-cell weui-cell_access" routerLink="text">
+                <div class="weui-cell__bd">
+                    <p>自我介绍</p>
+                </div>
+                <div id="myswear" class="weui-cell__ft">333333</div>
+           		 </a>
+				<div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd">是否展示二维码</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" ng-model="introduce.show" ng-change="changeShow()" type="checkbox">
+                </div>
+                </div>
+			</div>
+			</div>
+	</div>
+	</div>

@@ -7,6 +7,8 @@ import { SetRouteModule } from './set-route.module';
 import { BaseComponent } from './base/base.component';
 import { PrecisionComponent } from './Precision/Precision.component';
 import { IndexComponent } from './Index/Index.component';
+import { TextComponent } from './base/text.component';
+import { SelectComponent } from './base/select.component';
 
 @NgModule({
   imports: [
@@ -18,13 +20,17 @@ import { IndexComponent } from './Index/Index.component';
     SetComponent,
     BaseComponent,
     PrecisionComponent,
-    IndexComponent
+    IndexComponent,
+    TextComponent,
+    SelectComponent
   ],
   exports: [
     BaseComponent,
     PrecisionComponent,
     IndexComponent,
-    SetComponent
+    SetComponent,
+    TextComponent,
+    SelectComponent
     ],
   providers: [
 
