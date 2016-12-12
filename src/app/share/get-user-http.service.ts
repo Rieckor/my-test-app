@@ -1,19 +1,21 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import { SetList } from './set-list';
+import { User } from './user';
 
 @Injectable()
-export class SetListService {
+export class SetUserService {
   private listsUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/getSet';  // URL to web API
-  constructor (private http: Http) {}
-  getLists (): Observable<SetList> {
+  constructor (
+    private http: Http
+  ) {}
+  getLists (): Observable<User> {
     return this.http.get(this.listsUrl)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
   private extractData(res: Response) {
-    let body = res.json();
+    let body: User = res.json();
     return body || { };
   }
   private handleError (error: Response | any) {

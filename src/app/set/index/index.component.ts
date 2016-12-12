@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { SetListService } from '../get-set-http.service';
-import { SetList } from '../set-list';
-
+import { SharedData } from '../../share/share-data.service';
+import { User } from '../../share/user';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
-  providers: [SetListService]
+  providers: []
 })
 export class IndexComponent implements OnInit {
-  errorMessage: string;
   constructor(
-    private setlists: SetListService
+    private sharedata: SharedData
   ) { }
 
   ngOnInit() {
-    this.setlists.getLists()
-    .subscribe(
-      info => {
-        console.log(info);
-      },
-      error => this.errorMessage = <any>error
-    );
+    this.sharedata.getData().subscribe(
+      user => {
+        if (user != null){
+            console.log(user);
+        }
+      }
+      );
   }
 
 }

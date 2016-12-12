@@ -11,6 +11,7 @@ import { ListsModule } from './lists/lists.module';
 /* Routing Module */
 import { AppRoutingModule }     from './app-routing.module';
 
+import { SharedData } from './share/share-data.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { AppRoutingModule }     from './app-routing.module';
     ListsModule,
     CoreModule
   ],
-  providers: [Title],
+  providers: [Title, SharedData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
