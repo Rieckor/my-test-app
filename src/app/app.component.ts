@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SetUserService } from './share/get-user-http.service';
-import { SharedData } from './share/share-data.service';
+import { SetUserService } from './core/get-user-http.service';
+import { SharedData } from './core/share-data.service';
 
 @Component({
   selector: 'app-root',

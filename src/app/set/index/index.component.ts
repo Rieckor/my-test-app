@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedData } from '../../share/share-data.service';
+import { SharedData } from '../../core/share-data.service';
 import { User } from '../../share/user';
 @Component({
   selector: 'app-index',
@@ -8,6 +8,7 @@ import { User } from '../../share/user';
   providers: []
 })
 export class IndexComponent implements OnInit {
+  user: User;
   constructor(
     private sharedata: SharedData
   ) { }
@@ -15,8 +16,8 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     this.sharedata.getData().subscribe(
       user => {
-        if (user != null){
-            console.log(user);
+        if (user != null) {
+           this.user = user;
         }
       }
       );

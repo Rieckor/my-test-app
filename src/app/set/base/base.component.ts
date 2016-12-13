@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedData } from '../../core/share-data.service';
+import { User } from '../../share/user';
 
 @Component({
   selector: 'app-base',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  constructor(
+    private sharedata: SharedData
+  ) { }
 
   ngOnInit() {
+    this.sharedata.getData().subscribe(
+      user => {
+        if (user != null) {
+           this.user = user;
+        }
+      }
+      );
   }
-
 }

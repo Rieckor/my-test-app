@@ -4,7 +4,7 @@
 			<div class="weui-panel__bd">
 
 				<a routerLink="/set/base" class="weui-media-box weui-media-box_appmsg">
-					<div class="weui-media-box__hd avatar" style="background-image: url(http://weixin.zzu.edu.cn/Uploads/Editor/2016-08-23/57bc13a744580.jpg); ">
+					<div class="weui-media-box__hd avatar" [ngStyle]="{'background-image': 'url('+user.avatar+')'}" >
 					</div>
 					<div class="weui-media-box__bd">
 						<h4 class="weui-media-box__title"></h4>

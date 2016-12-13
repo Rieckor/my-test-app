@@ -1,6 +1,5 @@
 import { NgModule }       from '@angular/core';
-import { FormsModule }    from '@angular/forms';
-import { CommonModule }   from '@angular/common';
+import { SharedModule } from '../share/shared.module';
 
 import { SetComponent } from './set.component';
 import { SetRouteModule } from './set-route.module';
@@ -10,10 +9,10 @@ import { IndexComponent } from './Index/Index.component';
 import { TextComponent } from './base/text.component';
 import { SelectComponent } from './base/select.component';
 
+
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
+    SharedModule,
     SetRouteModule
   ],
   declarations: [
