@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <div class="weui-cell" style="padding: 1rem;" >
     <div class="weui-cell__bd" style="display: flex;border-bottom: 1px solid #3FCA3F;">
-        <input class="weui-input" placeholder="请输入文本" ng-model="text" ng-change="checkText()" type="text">
+        <input #text class="weui-input" (keyup)="characterCount(text)" placeholder="请输入文本" maxlength="50"  type="text">
         <div class="weui-input-counter" style="color: #A5A5A5;">
-            <span>11</span>/50
+            <span>{{cnt}}</span>/50
         </div>
     </div>
 </div>
@@ -15,10 +15,12 @@ import { Component, OnInit } from '@angular/core';
   `,
 })
 export class TextComponent implements OnInit {
-
+  cnt =  0;
   constructor() { }
 
   ngOnInit() {
   }
-
+  characterCount(event): number {
+    return this.cnt = event.value.length;
+  }
 }
