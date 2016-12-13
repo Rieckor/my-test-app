@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer, ViewChild, Input } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FileUploader } from 'ng2-file-upload';
 
@@ -16,7 +16,7 @@ const URL = 'http://test.irenmai.top/index.php?s=/Home/Test/saveImg';
             class="weui-uploader__input" 
             type="file" (change)="getImgUrl($event)" accept="image/*" multiple="" />
   </div>
-  <div *ngFor="let item of uploader.queue" [hidden]="status==0?true:false">
+  <div *ngFor="let item of uploader.queue"  [hidden]="status==0?true:false">
   <li *ngIf="item.isError" class="weui-uploader__file weui-uploader__file_status"  
   (click)="alterAvatar(fileInput)" 
   [ngStyle]="{'background-image': 'url(' + filePreviewPath.changingThisBreaksApplicationSecurity + ')'}">
@@ -31,11 +31,15 @@ const URL = 'http://test.irenmai.top/index.php?s=/Home/Test/saveImg';
   <li *ngIf="item.isSuccess" class="weui-uploader__file" (click)="alterAvatar(fileInput)"
   [ngStyle]="{'background-image': 'url(' + filePreviewPath.changingThisBreaksApplicationSecurity + ')'}"></li>
   </div>
+  <li *ngIf="preImgUrl" class="weui-uploader__file" (click)="alterAvatar(fileInput)"
+  [ngStyle]="{'background-image': 'url(' + preImgUrl + ')'}"></li>
   `
 })
 
 export class UploadAvatarComponent {
-    status = 0;
+    @Input() status: number ;
+    @Input() preImgUrl: string = null;
+
     public uploader: FileUploader = new FileUploader({ url: URL });
     public filePreviewPath: SafeUrl;
     @ViewChild('fileInput') fileInput: ElementRef;
@@ -43,14 +47,16 @@ export class UploadAvatarComponent {
         private sanitizer: DomSanitizer,
         private renderer: Renderer
         ) {
-       this.uploader.onAfterAddingFile = (fileItem) => {
-          this.filePreviewPath  = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
-        };
+         
+            this.uploader.onAfterAddingFile = (fileItem) => {
+            this.filePreviewPath  = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
+            };
+            
     }
-
 
     getImgUrl() {
         this.status = 1;
+        this.preImgUrl = null;
         this.uploader.queue[0].upload();
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
             console.log('ImageUpload:uploaded:', item, status, response);

@@ -36,8 +36,7 @@
                     <div class="weui-media-box__hd" style="flex: 1;text-align: left;">
 						<p>微信二维码</p>
 					</div>
-<div class="weui-media-box__hd avatar" [ngStyle]="{'background-image': 'url('+user.qr_img+')'}">
-					</div>
+					<app-avatar-upload [status]="status" [preImgUrl]="preImgUrl"></app-avatar-upload>
 					<div class="weui-cell__ft"> </div>
                 </a>
 				<a class="weui-cell weui-cell_access" routerLink="select">

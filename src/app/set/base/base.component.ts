@@ -8,7 +8,8 @@ import { User } from '../../share/user';
   styleUrls: ['./base.component.css']
 })
 export class BaseComponent implements OnInit {
-
+  status = 1;
+  preImgUrl = "http://test.irenmai.top/uploads/QR/oV0TBwwZqT-oZAydbvrJhERIOs9o.jpeg";
   user: User;
   constructor(
     private sharedata: SharedData

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   providers: [RegisterService]
 })
 export class SecondStepComponent  {
+  status = 0;
   cnt =  0;
   constructor(
     private regService: RegisterService,
