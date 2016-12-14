@@ -9,7 +9,7 @@ import { User } from '../../share/user';
 })
 export class BaseComponent implements OnInit {
   status = 1;
-  preImgUrl = "http://test.irenmai.top/uploads/QR/oV0TBwwZqT-oZAydbvrJhERIOs9o.jpeg";
+  preImgUrl = 'http://test.irenmai.top/uploads/QR/oV0TBwwZqT-oZAydbvrJhERIOs9o.jpeg';
   user: User;
   constructor(
     private sharedata: SharedData

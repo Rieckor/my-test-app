@@ -7,4 +7,5 @@ export interface User {
      self_instruction: string;
      industry: number;
      is_show: boolean;
+     industrys: Array<any>;
 }

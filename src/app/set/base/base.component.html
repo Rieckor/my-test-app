@@ -1,12 +1,12 @@
 <div class="page input" style="padding-top: 1rem;">
-	<div class="page__bd" ng-controller="UserInfoSet">
+	<div class="page__bd" ng-controller="User?InfoSet">
 	<div class="weui-panel weui-panel_access ">
 			<div class="weui-panel__bd">
 				<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg ">
                     <div class="weui-media-box__hd" style="flex: 1;text-align: left;">
 						<p>头像</p>
 					</div>
-					<div class="weui-media-box__hd avatar" [ngStyle]="{'background-image': 'url('+user.avatar+')'}">
+					<div *ngIf="user" class="weui-media-box__hd avatar" [ngStyle]="{'background-image': 'url('+user?.avatar+')'}">
 					</div>
 					<div class="weui-cell__ft"> </div>
                 </a>
@@ -14,19 +14,19 @@
                 <div class="weui-cell__bd">
                     <p>昵称</p>
                 </div>
-                <div class="weui-cell__ft">{{user.name}}</div>
+                <div class="weui-cell__ft">{{user?.name}}</div>
            		 </a>
 				<a class="weui-cell weui-media-box" href="javascript:;">
                 <div class="weui-cell__bd">
                     <p>地区</p>
                 </div>
-                <div class="weui-cell__ft">{{user.region}}</div>
+                <div class="weui-cell__ft">{{user?.region}}</div>
            		 </a>
 				<a class="weui-cell weui-media-box" href="javascript:;">
                 <div class="weui-cell__bd">
                     <p>性别</p>
                 </div>
-                <div class="weui-cell__ft">{{user.sex|getSex}}</div>
+                <div class="weui-cell__ft">{{user?.sex|getSex}}</div>
            		 </a>
 			</div>
 		</div>
@@ -43,18 +43,18 @@
                 <div class="weui-cell__bd">
                     <p>行业</p>
                 </div>
-                <div class="weui-cell__ft">{{user.industry|getIndustry}}</div>
+                <div *ngIf="user" class="weui-cell__ft">{{user?.industry|getIndustry:user?.industrys}}</div>
            		 </a>
 				<a class="weui-cell weui-cell_access" routerLink="text">
                 <div class="weui-cell__bd">
                     <p>自我介绍</p>
                 </div>
-                <div id="myswear" class="weui-cell__ft">{{user.self_instruction}}</div>
+                <div id="myswear" class="weui-cell__ft">{{user?.self_instruction}}</div>
            		 </a>
 				<div class="weui-cell weui-cell_switch">
                 <div class="weui-cell__bd">是否展示二维码</div>
                 <div class="weui-cell__ft">
-                    <input class="weui-switch" checked="{{user.is_show}}" ng-model="introduce.show" ng-change="changeShow()" type="checkbox">
+                    <input class="weui-switch" checked="{{user?.is_show}}" ng-model="introduce.show" ng-change="changeShow()" type="checkbox">
                 </div>
                 </div>
 			</div>

@@ -11,13 +11,10 @@ export class SetUserService {
   ) {}
   getLists (): Observable<User> {
     return this.http.get(this.listsUrl)
-                    .map(this.extractData)
+                    .map(res => res.json())
                     .catch(this.handleError);
   }
-  private extractData(res: Response) {
-    let body: User = res.json();
-    return body || { };
-  }
+
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;

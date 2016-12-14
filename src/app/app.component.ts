@@ -17,12 +17,11 @@ constructor(
     this.setuser.getLists()
     .subscribe(
       info => {
-        this.sharedata.setData(info);
+        if (info != null) {
+          this.sharedata.setData(info);
+        }
       },
       error => this.errorMessage = <any>error
     );
   }
-
-
-
 }

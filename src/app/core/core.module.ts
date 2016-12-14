@@ -1,5 +1,5 @@
 import {
-  ModuleWithProviders, NgModule,
+   NgModule,
   Optional, SkipSelf }       from '@angular/core';
 import { CommonModule }      from '@angular/common';
 import { HttpModule } from '@angular/http';
@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
  * 共享用户数据服务
  */
 import { SharedData } from './share-data.service';
+import { SetUserService } from './get-user-http.service';
 
 @NgModule({
   imports:      [
@@ -16,7 +17,9 @@ import { SharedData } from './share-data.service';
   ],
   declarations: [  ],
   exports:      [  ],
-  providers:    [ SharedData ]
+  providers:    [SharedData, SetUserService,
+
+   ]
 })
 export class CoreModule {
   constructor (@Optional() @SkipSelf() parentModule: CoreModule) {

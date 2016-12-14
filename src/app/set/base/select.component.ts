@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedData } from '../../core/share-data.service';
+import { User } from '../../share/user';
 
 @Component({
     template: `
@@ -6,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 <div class="weui-cell weui-cell_select" style="padding: 1rem;" >
    <div class="weui-cell__bd" style="border-bottom: 1px solid #3FCA3F;">
       <select class="weui-select" name="industry" ng-model="industry">
-		<option value="0">请选择行业</option>
-        <option value="1">2</option>
+        <option *ngFor = "let industry of user?.industrys" value="industry.id">{{industry?.name}}</option>
       </select>
     </div>
  </div>
@@ -16,10 +17,19 @@ import { Component, OnInit } from '@angular/core';
   `,
 })
 export class SelectComponent implements OnInit {
-
-    constructor() { }
+    user: User;
+    constructor(
+        private sharedata: SharedData
+    ) { }
 
     ngOnInit() {
+    this.sharedata.getData().subscribe(
+      user => {
+        if (user != null) {
+           this.user = user;
+        }
+      }
+      );
     }
 
 }
