@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedData } from '../../core/share-data.service';
 import { User } from '../../share/user';
 @Component({
@@ -10,7 +11,8 @@ import { User } from '../../share/user';
 export class IndexComponent implements OnInit {
   user: User;
   constructor(
-    private sharedata: SharedData
+    private sharedata: SharedData,
+    private route: Router
   ) { }
 
   ngOnInit() {
@@ -21,6 +23,17 @@ export class IndexComponent implements OnInit {
         }
       }
       );
+    if (this.user.is_show === true) {
+      this.route.navigateByUrl('set/index/precision');
+    }
+  }
+
+  onit(event) {
+      if(event.checked === true) {
+        this.route.navigateByUrl('set/index/precision');
+      }else {
+        this.route.navigateByUrl('set/index');
+      }
   }
 
 }

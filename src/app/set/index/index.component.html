@@ -20,9 +20,10 @@
 			<div class="weui-cell weui-cell_switch">
 				<div class="weui-cell__bd">开启精准匹配</div>
 				<div class="weui-cell__ft">
-					<input class="weui-switch" ng-change="" type="checkbox">
+					<input #check checked="user?.is_show" class="weui-switch" (change)="onit(check)"  type="checkbox">
 				</div>
 			</div>
 		</div>
+		<router-outlet></router-outlet>
 	</div>
 </div>

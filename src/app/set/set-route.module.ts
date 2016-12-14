@@ -7,6 +7,7 @@ import { TextComponent } from './base/text.component';
 import { SelectComponent } from './base/select.component';
 import { PrecisionComponent } from './Precision/Precision.component';
 import { IndexComponent } from './Index/Index.component';
+import { BlankComponent } from './index/Blank.component';
 
 const setRoutes: Routes = [
   {
@@ -15,7 +16,16 @@ const setRoutes: Routes = [
     children: [
         {
           path: 'index',
-          component: IndexComponent
+          component: IndexComponent,
+          children: [
+            {
+              path: '',
+              component: BlankComponent
+            },{
+              path: 'precision',
+              component: PrecisionComponent
+            }
+          ]
         }, {
           path: 'base',
           component: BaseComponent,
@@ -25,9 +35,6 @@ const setRoutes: Routes = [
         }, {
           path: 'base/select',
           component: SelectComponent,
-        }, {
-          path: 'precision',
-          component: PrecisionComponent
         }
     ]
   }
