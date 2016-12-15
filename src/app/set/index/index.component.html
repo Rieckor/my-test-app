@@ -20,9 +20,40 @@
 			<div class="weui-cell weui-cell_switch">
 				<div class="weui-cell__bd">开启精准匹配</div>
 				<div class="weui-cell__ft">
-					<input class="weui-switch" ng-change="" type="checkbox">
+					<input #check checked="user?.is_show" class="weui-switch" (change)="onit(check)"  type="checkbox">
 				</div>
 			</div>
 		</div>
+		 <div *ngIf="isprecision"  style="text-align: center;" class="weui-panel__hd">未开启精准查找</div>
+		 <div *ngIf="!isprecision">
+			<div class="weui-cells__title">精准人脉设置详情</div>
+			<div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>区域</p>
+                </div>
+                <div class="weui-cell__ft">河南</div>
+            </a>
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>行业</p>
+                </div>
+                <div class="weui-cell__ft">全部</div>
+            </a>
+			
+            <a class="weui-cell weui-cell_access" href="javascript:;">
+                <div class="weui-cell__bd">
+                    <p>性别</p>
+                </div>
+                <div class="weui-cell__ft">全部</div>
+            </a>
+            <div class="weui-cell weui-cell_switch">
+				<div class="weui-cell__bd">是否隐身</div>
+				<div class="weui-cell__ft">
+					<input class="weui-switch"  type="checkbox">
+				</div>
+			</div>
+        </div>
+		 </div>
 	</div>
 </div>
