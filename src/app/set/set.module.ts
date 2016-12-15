@@ -8,7 +8,7 @@ import { PrecisionComponent } from './Precision/Precision.component';
 import { IndexComponent } from './Index/Index.component';
 import { TextComponent } from './base/text.component';
 import { SelectComponent } from './base/select.component';
-import { BlankComponent } from './index/Blank.component';
+
 
 @NgModule({
   imports: [
@@ -21,8 +21,7 @@ import { BlankComponent } from './index/Blank.component';
     PrecisionComponent,
     IndexComponent,
     TextComponent,
-    SelectComponent,
-    BlankComponent
+    SelectComponent
   ],
   exports: [
     BaseComponent,
@@ -30,8 +29,7 @@ import { BlankComponent } from './index/Blank.component';
     IndexComponent,
     SetComponent,
     TextComponent,
-    SelectComponent,
-    BlankComponent
+    SelectComponent
     ],
   providers: [
 
