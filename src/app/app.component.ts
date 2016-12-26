@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SetUserService } from './core/get-user-http.service';
 import { SharedData } from './core/share-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,14 @@ export class AppComponent  {
 errorMessage: string;
 constructor(
     private setuser: SetUserService,
-    private sharedata: SharedData
+    private sharedata: SharedData,
+    private route: Router
   ) {
     this.setuser.getLists()
     .subscribe(
       info => {
         if (info != null) {
-          this.sharedata.setData(info);
+          info.status === 1?this.sharedata.setData(info):this.route.navigateByUrl('/admin');
         }
       },
       error => this.errorMessage = <any>error

@@ -8,4 +8,5 @@ export interface User {
      industry: number;
      is_show: boolean;
      industrys: Array<any>;
+     status:number;
 }

@@ -1,3 +1,5 @@
+import './rxjs-operators';
+
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,13 +8,10 @@ import { AppComponent } from './app.component';
 
 /* Feature Modules */
 import { CoreModule }       from './core/core.module';
-import { ListsModule } from './lists/lists.module';
+import { AdminModule }       from './admin/admin.module';
 
 /* Routing Module */
 import { AppRoutingModule }     from './app-routing.module';
-
-
-
 
 @NgModule({
   declarations: [
@@ -21,8 +20,8 @@ import { AppRoutingModule }     from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ListsModule,
-    CoreModule
+    CoreModule,
+    AdminModule
   ],
   providers: [
     Title

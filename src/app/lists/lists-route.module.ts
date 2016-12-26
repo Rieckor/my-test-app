@@ -7,7 +7,7 @@ import { DetailComponent } from './detail/detail.component';
 
 const listsCenterRoutes: Routes = [
   {
-    path: 'lists',
+    path: '',
     component: ListsComponent,
     children: [
       {

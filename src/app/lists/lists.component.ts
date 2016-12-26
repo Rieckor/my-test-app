@@ -16,7 +16,7 @@ export class ListsComponent {
     {name: '精准列表', route: 'precision'},
     {name: '注册', route: '/register/step1'},
     {name: '设置', route: '/set/index'},
-    {name: 'Gestures', route: 'gestures'},
+    {name: 'Gestures', route: '/admin'},
     {name: 'Grid List', route: 'grid-list'}
   ];
   upTop() {
