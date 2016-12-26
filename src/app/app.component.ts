@@ -20,7 +20,7 @@ constructor(
     .subscribe(
       info => {
         if (info != null) {
-          info.status === 1?this.sharedata.setData(info):this.route.navigateByUrl('/admin');
+          info.status === 1 ? this.sharedata.setData(info) : this.route.navigateByUrl('/notice');
         }
       },
       error => this.errorMessage = <any>error

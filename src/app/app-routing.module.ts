@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/admin',
+    redirectTo: '/lists/index',
     pathMatch: 'full'
   }, {
     path: 'register',
@@ -16,6 +16,9 @@ const appRoutes: Routes = [
   }, {
     path: 'lists',
     loadChildren: 'app/lists/lists.module#ListsModule',
+  }, {
+    path: 'notice',
+    loadChildren: 'app/notice/notice.module#NoticeModule',
   }
 ];
 @NgModule({

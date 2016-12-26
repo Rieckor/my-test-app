@@ -16,8 +16,8 @@ export class ListsComponent {
     {name: '精准列表', route: 'precision'},
     {name: '注册', route: '/register/step1'},
     {name: '设置', route: '/set/index'},
-    {name: 'Gestures', route: '/admin'},
-    {name: 'Grid List', route: 'grid-list'}
+    {name: 'Gestures', route: '/notice/1'},
+    {name: 'Grid List', route: '/notice/2'}
   ];
   upTop() {
     console.log('"upTop down!"');

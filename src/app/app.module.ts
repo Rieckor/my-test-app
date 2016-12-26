@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 /* Feature Modules */
 import { CoreModule }       from './core/core.module';
-import { AdminModule }       from './admin/admin.module';
+import { NoticeModule }       from './notice/notice.module';
 
 /* Routing Module */
 import { AppRoutingModule }     from './app-routing.module';
@@ -21,7 +21,7 @@ import { AppRoutingModule }     from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    AdminModule
+    NoticeModule
   ],
   providers: [
     Title
