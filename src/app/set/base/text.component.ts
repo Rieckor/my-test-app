@@ -38,6 +38,7 @@ export class TextComponent implements OnInit {
       user => {
         if (user != null) {
            this.user = user;
+           this.cnt = user.self_instruction.length
         }
       }
       );
@@ -51,6 +52,8 @@ export class TextComponent implements OnInit {
     this.savefield.UpdateField(this.data)
     .subscribe(
       res => {
+        this.user.self_instruction = event;
+        this.sharedata.setData(this.user);
         history.go(-1);
       }
     );

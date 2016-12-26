@@ -10,7 +10,7 @@ import {Field} from '../../share/field';
 <div class="weui-cell weui-cell_select" style="padding: 1rem;" >
    <div class="weui-cell__bd" style="border-bottom: 1px solid #3FCA3F;">
       <select #select class="weui-select" name="industry" ng-model="industry">
-        <option *ngFor = "let industry of user?.industrys" value="{{industry?.id}}">{{industry?.name}}</option>
+        <option *ngFor = "let industry of user?.industrys" [selected]="user?.industry === industry.id?true:null"  value="{{industry?.id}}">{{industry?.name}}</option>
       </select>
     </div>
  </div>
@@ -42,10 +42,11 @@ export class SelectComponent implements OnInit {
     this.savefield.UpdateField(this.data)
     .subscribe(
       res => {
+        this.user.industry = event;
+        this.sharedata.setData(this.user);
         history.go(-1);
       }
     );
-    console.log(event);
   }
 
 }
