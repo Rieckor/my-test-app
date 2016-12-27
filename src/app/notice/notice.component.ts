@@ -23,7 +23,7 @@ export class NoticeComponent implements OnInit, OnDestroy {
           this.time = 1;
           this.type = true;
         }else {
-          this.msg = "请您确认操作无误后重试";
+          p['msg'] ? this.msg = p['msg'] : this.msg = '请您确认操作无误后重试';
           this.time = 3;
           this.type = false;
         }

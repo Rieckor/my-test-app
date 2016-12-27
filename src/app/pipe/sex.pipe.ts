@@ -14,7 +14,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class GetSexPipe implements PipeTransform {
   transform(value: number): string {
     switch (value) {
-        case 0:
+        case 2:
             return '女';
         case 1:
             return '男';
