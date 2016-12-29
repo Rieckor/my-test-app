@@ -6,7 +6,7 @@ export interface User {
      qr_img: string;
      self_instruction: string;
      industry: number;
-     is_show: boolean;
+     is_show: number;
      industrys: Array<any>;
-     status:number;
+     status: number;
 }

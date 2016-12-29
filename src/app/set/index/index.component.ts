@@ -9,7 +9,7 @@ import { User } from '../../share/user';
 })
 export class IndexComponent implements OnInit {
   user: User;
-  isprecision: boolean;
+  isprecision: boolean = false;
   constructor(
     private sharedata: SharedData
   ) { }
@@ -19,17 +19,18 @@ export class IndexComponent implements OnInit {
       user => {
         if (user != null) {
            this.user = user;
-           this.isprecision = !this.user.is_show;
+           user.is_show === 1 ? this.isprecision = true : this.isprecision = false;
         }
       }
       );
   }
 
   onit(event) {
+    console.log(event.checked);
     if (event.checked === true) {
-      this.isprecision = false;
-    }else {
       this.isprecision = true;
+    }else {
+      this.isprecision = false;
     }
   }
 

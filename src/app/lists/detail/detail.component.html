@@ -1,8 +1,9 @@
-  <md-card>
+  <div *ngIf="!info">loading</div>
+  <md-card *ngIf="info">
     <md-card-header>
-      <img md-card-avatar>
-      <md-card-title>Header title</md-card-title>
-      <md-card-subtitle>Header subtitle</md-card-subtitle>
+      <img md-card-avatar src="{{info?.headimgurl}}">
+      <md-card-title>{{info?.nickname}}</md-card-title>
+      <md-card-subtitle>{{info?.myswear}}</md-card-subtitle>
     </md-card-header>
     <img md-card-image src="https://material.angularjs.org/latest/img/washedout.png">
     <md-card-content>

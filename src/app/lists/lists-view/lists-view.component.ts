@@ -3,7 +3,7 @@ import { Router , ActivatedRoute } from '@angular/router';
 import { TitleService }     from '../../share/title.service';
 import 'rxjs/add/operator/switchMap';
 
-import { List } from './list';
+import { List } from '../list';
 import { ListService } from './lists.service';
 @Component({
   selector: 'app-lists-view',
@@ -33,7 +33,7 @@ export class ListsViewComponent implements OnInit {
   getLists() {
     this.listService.getLists()
       .subscribe(
-      lists => this.lists = lists,
+      lists => {this.lists = lists;console.log(lists);},
       error => this.errorMessage = <any>error);
   }
   onScrollDown() {
@@ -47,8 +47,8 @@ export class ListsViewComponent implements OnInit {
       },
       error => this.errorMessage = <any>error);
   }
-  getDetail() {
+  getDetail(id) {
       // Navigate with relative link
-    this.router.navigate([1], { relativeTo: this.route });
+    this.router.navigate([id], { relativeTo: this.route });
   }
 }

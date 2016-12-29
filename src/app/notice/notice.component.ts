@@ -35,7 +35,7 @@ export class NoticeComponent implements OnInit, OnDestroy {
     this.time--;
     if (this.time < 0) {
       this.time = 0;
-      history.go(-1);
+      history.go(-2);
     }
   }
 

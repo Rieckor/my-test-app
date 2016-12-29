@@ -1,11 +1,11 @@
 <md-list>
   <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="10" (scrolled)="onScrollDown()">
-    <md-list-item (click)="getDetail()" *ngFor="let list of lists">
-      <img md-list-avatar src="http://www.qqtu8.net/f/20141103133745_1.jpg">
-      <h3 md-line> {{list.name}} </h3>
+    <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
+      <img md-list-avatar src="{{list?.headimgurl}}">
+      <h3 md-line> {{list?.nickname}} </h3>
       <p md-line>
-        <span> {{list.name}}</span>
-        <span class="demo-2"> -- {{list.content}} </span>
+        <span> {{list?.nickname}}</span>
+        <span class="demo-2"> -- {{list?.myswear}} </span>
       </p>
     </md-list-item>
   </div>

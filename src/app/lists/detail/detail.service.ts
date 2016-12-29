@@ -4,11 +4,11 @@ import { Observable }     from 'rxjs/Observable';
 import { List } from '../list';
 
 @Injectable()
-export class ListService {
-  private listsUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/index';  // URL to web API
+export class DetailService {
+  private detailUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/getDetail';  // URL to web API
   constructor (private http: Http) {}
-  getLists (): Observable<List[]> {
-    return this.http.get(this.listsUrl)
+  getdetail (id: number): Observable<List[]> {
+    return this.http.post(this.detailUrl, { id })
                     .map(this.extractData)
                     .catch(this.handleError);
   }

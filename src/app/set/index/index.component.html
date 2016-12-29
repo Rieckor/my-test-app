@@ -1,4 +1,4 @@
-<div class="panel" style="padding-top: 1rem;">
+<div *ngIf="!user" class="panel" style="padding-top: 1rem;">
 	<div class="page__bd">
 		<div class="weui-panel weui-panel_access weui-cell_access">
 			<div class="weui-panel__bd">
@@ -20,12 +20,12 @@
 			<div class="weui-cell weui-cell_switch">
 				<div class="weui-cell__bd">开启精准匹配</div>
 				<div class="weui-cell__ft">
-					<input #check checked="user?.is_show" class="weui-switch" (change)="onit(check)"  type="checkbox">
+					<input #check [checked]="isprecision" class="weui-switch" (change)="onit(check)"  type="checkbox">
 				</div>
 			</div>
 		</div>
-		 <div *ngIf="isprecision"  style="text-align: center;" class="weui-panel__hd">未开启精准查找</div>
-		 <div *ngIf="!isprecision">
+		 <div *ngIf="!isprecision"  style="text-align: center;" class="weui-panel__hd">未开启精准查找</div>
+		 <div *ngIf="isprecision">
 			<div class="weui-cells__title">精准人脉设置详情</div>
 			<div class="weui-cells">
             <a class="weui-cell weui-cell_access" href="javascript:;">
@@ -57,3 +57,5 @@
 		 </div>
 	</div>
 </div>
+
+<div *ngIf="user">loading...</div>
