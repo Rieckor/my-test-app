@@ -556,7 +556,6 @@ input.weui-btn_plain-default {
   color: #E64340;
 }
 .weui-toptips {
-  display: none;
   position: fixed;
   -webkit-transform: translateZ(0);
           transform: translateZ(0);

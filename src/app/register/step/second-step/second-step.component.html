@@ -1,9 +1,10 @@
 <div class="page hide__flow">
   <div class="page__hd">
-    <img md-card-sm-image class="cricle" src="http://weixin.zzu.edu.cn/Uploads/Editor/2016-08-23/57bc13a744580.jpg">
+
+    <img md-card-sm-image class="cricle" src="{{user?.avatar}}">
     <div>
-      <div class="avatar__name">Badge</div>
-      <div class="avatar__sub">subBadge</div>
+    <div class="avatar__name">{{user?.name}}</div>
+    <div class="avatar__sub">{{user?.region}}</div>
     </div>
   </div>
   <div class="weui-cells">
@@ -25,10 +26,11 @@
       </div>
     </div>
 </div>
-  <div class="bottom__button">
+  <div class="second__button">
     <a (click)="subReg(text.value)" class="weui-btn weui-btn_plain-default">提交注册</a>
   </div>
 </div>
+<div *ngIf="show_tip" class="weui-toptips weui-toptips_warn js_tooltips" >{{show_tip}}</div>
 <div class="weui-footer">
   <p class="weui-footer__text">Copyright © 2014-2016 irenmai.top</p>
 </div>

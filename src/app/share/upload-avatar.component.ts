@@ -14,7 +14,7 @@ const URL = 'http://test.irenmai.top/index.php?s=/Home/Test/saveImg';
             ng2FileSelect 
             [uploader]="uploader" 
             class="weui-uploader__input" 
-            type="file" (change)="getImgUrl($event)" accept="image/*" multiple="" />
+            type="file" (change)="getImgUrl()" accept="image/*"  />
   </div>
   <div *ngFor="let item of uploader.queue"  [hidden]="status==0?true:false">
   <li *ngIf="item.isError" class="weui-uploader__file weui-uploader__file_status"  
@@ -47,11 +47,9 @@ export class UploadAvatarComponent {
         private sanitizer: DomSanitizer,
         private renderer: Renderer
         ) {
-         
             this.uploader.onAfterAddingFile = (fileItem) => {
             this.filePreviewPath  = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
             };
-            
     }
 
     getImgUrl() {
@@ -61,15 +59,15 @@ export class UploadAvatarComponent {
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
             console.log('ImageUpload:uploaded:', item, status, response);
         };
-        console.log( this.filePreviewPath );
+        // console.log( this.filePreviewPath );
     }
 
     alterAvatar(fileInput: Element) {
-    // from http://stackoverflow.com/a/32010791/217408
-    let event = new MouseEvent('click', {bubbles: true});
-    this.renderer.invokeElementMethod(
-        this.fileInput.nativeElement, 'dispatchEvent', [event]);
-    }
+        // from http://stackoverflow.com/a/32010791/217408
+        let event = new MouseEvent('click', {bubbles: true});
+        this.renderer.invokeElementMethod(
+            this.fileInput.nativeElement, 'dispatchEvent', [event]);
+        }
 
 }
 

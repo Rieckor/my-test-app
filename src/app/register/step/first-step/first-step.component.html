@@ -1,17 +1,17 @@
 <div class="page hide__flow">
   <div class="page__hd">
 
-    <img md-card-sm-image class="cricle" src="http://weixin.zzu.edu.cn/Uploads/Editor/2016-08-23/57bc13a744580.jpg">
+    <img md-card-sm-image class="cricle" src="{{user?.avatar}}">
     <div>
-    <div class="avatar__name">Badge</div>
-    <div class="avatar__sub">subBadge</div>
+    <div class="avatar__name">{{user?.name}}</div>
+    <div class="avatar__sub">{{user?.region}}</div>
     </div>
   </div>
 <h1 class="text__center welcome">欢迎您!</h1>
 
 
 
-<div class="bottom__button">
+<div class="first__button">
 <a routerLink="/register/step2" class="weui-btn weui-btn_plain-primary">现在注册</a>
 </div>
 </div>
