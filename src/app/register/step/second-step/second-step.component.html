@@ -13,7 +13,7 @@
         <p>上传二维码</p>
       </div>
       <div class="weui-cell__ft">
-        <app-avatar-upload [status]="status"></app-avatar-upload>
+        <app-avatar-upload [status]="status" (res)="getRes($event)"></app-avatar-upload>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer, ViewChild, Input } from '@angular/core';
+import { Component, ElementRef, Renderer, ViewChild, EventEmitter, Input,  Output } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { FileUploader } from 'ng2-file-upload';
 
@@ -40,6 +40,7 @@ export class UploadAvatarComponent {
     @Input() status: number ;
     @Input() preImgUrl: string = null;
 
+    @Output() res = new EventEmitter<any>();
     public uploader: FileUploader = new FileUploader({ url: URL });
     public filePreviewPath: SafeUrl;
     @ViewChild('fileInput') fileInput: ElementRef;
@@ -57,7 +58,8 @@ export class UploadAvatarComponent {
         this.preImgUrl = null;
         this.uploader.queue[0].upload();
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-            console.log('ImageUpload:uploaded:', item, status, response);
+            this.res.emit(response);
+          //  console.log('ImageUpload:uploaded:', item, status, response);
         };
         // console.log( this.filePreviewPath );
     }
