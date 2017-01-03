@@ -5,10 +5,10 @@ import { List } from '../list';
 
 @Injectable()
 export class ListService {
-  private listsUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/index';  // URL to web API
+  private listsUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/';  // URL to web API
   constructor (private http: Http) {}
-  getLists (): Observable<List[]> {
-    return this.http.get(this.listsUrl)
+  getLists (type: string, page: number): Observable<List[]> {
+    return this.http.get(this.listsUrl + type + '/p/' + page)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

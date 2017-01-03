@@ -20,8 +20,8 @@
     <router-outlet></router-outlet>
   </div>
 </md-sidenav-layout>
-<span class="app-action" >
-  <button md-fab (click)="upTop()">
+<span class="app-action" *ngIf="upIcon" >
+  <button md-fab (click)="upTop()" >
       <md-icon class="md-48">expand_less</md-icon>
     </button>
 </span>

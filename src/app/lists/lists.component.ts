@@ -10,6 +10,7 @@ import {MdIconRegistry} from '@angular/material';
   providers: [MdIconRegistry]
 })
 export class ListsComponent {
+  upIcon: boolean = false;
   navItems = [
     {name: '人脉列表', route: 'index'},
     {name: '群落列表', route: 'group'},
@@ -22,6 +23,7 @@ export class ListsComponent {
   upTop() {
     console.log('"upTop down!"');
   }
+
 }
 
 

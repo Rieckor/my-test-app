@@ -42,7 +42,6 @@ export class SecondStepComponent implements OnInit {
   }
 
   subReg(data) {
-    console.log(this.canNext);
     data === '' ? this.canNext = false : this.canNext = this.canNext ;
     if (!this.canNext) {
       this.show_tip = '二维码或者内容不能为空！';

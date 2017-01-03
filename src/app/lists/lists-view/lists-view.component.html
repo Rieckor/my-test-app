@@ -1,11 +1,23 @@
-<md-list>
-  <div class="search-results" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="10" (scrolled)="onScrollDown()">
+<md-list *ngIf="tab === 'index'">
+  <div class="search-results" infinite-scroll [infiniteScrollDisabled] = 'ScrollDisabled' (scrolled)="onScrollDown()">
     <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
       <img md-list-avatar src="{{list?.headimgurl}}">
       <h3 md-line> {{list?.nickname}} </h3>
       <p md-line>
         <span> {{list?.nickname}}</span>
         <span class="demo-2"> -- {{list?.myswear}} </span>
+      </p>
+    </md-list-item>
+  </div>
+</md-list>
+<md-list *ngIf="tab === 'group'">
+  <div class="search-results" infinite-scroll  (scrolled)="onScrollDown()" [infiniteScrollDisabled] = 'ScrollDisabled'>
+    <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
+      <img md-list-avatar src="{{list?.headimgurl}}">
+      <h3 md-line> {{list?.group_name}} </h3>
+      <p md-line>
+        <span> {{list?.group_name}}</span>
+        <span class="demo-2"> -- {{list?.group_intro}} </span>
       </p>
     </md-list-item>
   </div>
