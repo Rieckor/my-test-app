@@ -54,4 +54,7 @@ export class ListsViewComponent implements OnInit {
       // Navigate with relative link
     this.router.navigate([id], { relativeTo: this.route });
   }
+  upTop() {
+    console.log('"upTop down!"');
+  }
 }

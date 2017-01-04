@@ -4,7 +4,7 @@
       <img md-list-avatar src="{{list?.headimgurl}}">
       <h3 md-line> {{list?.nickname}} </h3>
       <p md-line>
-        <span> {{list?.nickname}}</span>
+        <span> {{list?.province}}.{{list?.city}}</span>
         <span class="demo-2"> -- {{list?.myswear}} </span>
       </p>
     </md-list-item>
@@ -16,9 +16,14 @@
       <img md-list-avatar src="{{list?.headimgurl}}">
       <h3 md-line> {{list?.group_name}} </h3>
       <p md-line>
-        <span> {{list?.group_name}}</span>
+        <span> {{list?.province}}.{{list?.city}}</span>
         <span class="demo-2"> -- {{list?.group_intro}} </span>
       </p>
     </md-list-item>
   </div>
 </md-list>
+<span class="app-action" >
+  <button md-fab (click)="upTop()" >
+      <md-icon class="md-48">expand_less</md-icon>
+    </button>
+</span>

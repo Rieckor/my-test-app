@@ -17,7 +17,6 @@ export class FirstStepComponent implements OnInit {
     this.sharedata.getData().subscribe(
       user => {
         if (user !== null) {
-          console.log(user);
            this.user = user;
         }
       }
