@@ -1,10 +1,10 @@
-<div *ngIf="!user" class="panel" style="padding-top: 1rem;">
+<div *ngIf="user" class="panel" style="padding-top: 1rem;">
 	<div class="page__bd">
 		<div class="weui-panel weui-panel_access weui-cell_access">
 			<div class="weui-panel__bd">
 
 				<a routerLink="/set/base" class="weui-media-box weui-media-box_appmsg">
-					<div *ngIf="user" class="weui-media-box__hd avatar" [ngStyle]="{'background-image': 'url('+(user)?.avatar+')'}" >
+					<div  class="weui-media-box__hd avatar" [ngStyle]="{'background-image': 'url('+user?.avatar+')'}" >
 					</div>
 					<div class="weui-media-box__bd">
 						<h4 class="weui-media-box__title"></h4>
@@ -58,4 +58,4 @@
 	</div>
 </div>
 
-<div *ngIf="user">loading...</div>
+<div *ngIf="!user">loading...</div>

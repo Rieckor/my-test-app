@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
     this.sharedata.getData().subscribe(
       user => {
         if (user != null) {
-           this.user = user;
+          this.user = user;
            user.is_show === 1 ? this.isprecision = true : this.isprecision = false;
         }
       }
@@ -26,7 +26,6 @@ export class IndexComponent implements OnInit {
   }
 
   onit(event) {
-    console.log(event.checked);
     if (event.checked === true) {
       this.isprecision = true;
     }else {
