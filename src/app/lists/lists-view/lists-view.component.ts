@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router , ActivatedRoute } from '@angular/router';
-import { TitleService }     from '../../share/title.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TitleService } from '../../share/title.service';
 import 'rxjs/add/operator/switchMap';
 
 import { List } from '../list';
@@ -17,25 +17,26 @@ export class ListsViewComponent implements OnInit {
   tab: string;
   page: number = 1;
   ScrollDisabled: boolean = false;
-
+  status: boolean;
   constructor(
     private title: TitleService,
     private route: ActivatedRoute,
     private router: Router,
     private listService: ListService
-    ) { }
+  ) { }
   ngOnInit() {
     this.route.params
       .subscribe(p => {
-          this.title.setTitle(p['type']);
-          this.tab = p['type'];
-          this.getLists(this.tab, this.page = 1);
+        this.status = false; // 加载状态初始化
+        this.title.setTitle(p['type']);
+        this.tab = p['type'];
+        this.getLists(this.tab, this.page = 1);
       });
   }
   getLists(type, page) {
     this.listService.getLists(type, page)
       .subscribe(
-      lists => {this.lists = lists; },
+      lists => { this.lists = lists; this.status = true; },
       error => this.errorMessage = <any>error);
   }
   onScrollDown() {
@@ -51,7 +52,7 @@ export class ListsViewComponent implements OnInit {
       error => this.errorMessage = <any>error);
   }
   getDetail(id) {
-      // Navigate with relative link
+    // Navigate with relative link
     this.router.navigate([id], { relativeTo: this.route });
   }
   upTop() {

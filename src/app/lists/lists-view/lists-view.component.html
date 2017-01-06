@@ -1,4 +1,4 @@
-<md-list *ngIf="tab === 'index'">
+<md-list *ngIf="tab === 'index'  && status">
   <div class="search-results" infinite-scroll [infiniteScrollDisabled] = 'ScrollDisabled' (scrolled)="onScrollDown()">
     <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
       <img md-list-avatar src="{{list?.headimgurl}}">
@@ -10,7 +10,7 @@
     </md-list-item>
   </div>
 </md-list>
-<md-list *ngIf="tab === 'group'">
+<md-list *ngIf="tab === 'group'  && status">
   <div class="search-results" infinite-scroll  (scrolled)="onScrollDown()" [infiniteScrollDisabled] = 'ScrollDisabled'>
     <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
       <img md-list-avatar src="{{list?.headimgurl}}">
@@ -22,6 +22,21 @@
     </md-list-item>
   </div>
 </md-list>
+<md-list *ngIf="tab === 'precision'  && status">
+  <div class="search-results" infinite-scroll  (scrolled)="onScrollDown()" [infiniteScrollDisabled] = 'ScrollDisabled'>
+    <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
+      <img md-list-avatar src="{{list?.headimgurl}}">
+      <h3 md-line> {{list?.group_name}} </h3>
+      <p md-line>
+        <span> {{list?.province}}.{{list?.city}}</span>
+        <span class="demo-2"> -- {{list?.group_intro}} </span>
+      </p>
+    </md-list-item>
+  </div>
+</md-list>
+<div *ngIf="!lists && status">暂无内容！</div>
+<div *ngIf="!status">loading...</div>
+
 <span class="app-action" >
   <button md-fab (click)="upTop()" >
       <md-icon class="md-48">expand_less</md-icon>

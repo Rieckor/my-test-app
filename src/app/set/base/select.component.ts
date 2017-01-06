@@ -10,11 +10,12 @@ import {Field} from '../../share/field';
 <div class="weui-cell weui-cell_select" style="padding: 1rem;" >
    <div class="weui-cell__bd" style="border-bottom: 1px solid #3FCA3F;">
       <select #select class="weui-select" name="industry" ng-model="industry">
-        <option *ngFor = "let industry of user?.industrys" [selected]="user?.industry === industry.id?true:null"  value="{{industry?.id}}">{{industry?.name}}</option>
+        <option *ngFor = "let industry of user?.industrys" 
+        [selected]="user?.industry === industry.id?true:null"  value="{{industry?.id}}">{{industry?.name}}</option>
       </select>
     </div>
  </div>
-	<a class="weui-btn weui-btn_mini weui-btn_primary" (click)="update(select.value)" style="margin-left: 80%;">保存</a>
+<a class="weui-btn weui-btn_mini weui-btn_primary" (click)="update(select.value)" style="margin-left: 80%;">保存</a>
 </div>
   `,
     providers: [UpdateService]
