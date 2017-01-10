@@ -56,6 +56,11 @@ export class ListsViewComponent implements OnInit {
     this.router.navigate([id], { relativeTo: this.route });
   }
   upTop() {
-    console.log('"upTop down!"');
+    this.lists.forEach((element, index) => {
+        if (element.id === '8') {
+            this.lists.splice(index, 1);
+            this.lists.unshift(element);
+        }
+    });
   }
 }
