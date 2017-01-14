@@ -3,14 +3,16 @@
     <md-card-header>
       <img md-card-avatar src="{{info?.headimgurl}}">
       <md-card-title>{{info?.nickname}}</md-card-title>
-      <md-card-subtitle>{{info?.myswear}}</md-card-subtitle>
+      <md-card-subtitle>{{info?.province}}{{info?.city}}</md-card-subtitle>
     </md-card-header>
-    <img md-card-image src="https://material.angularjs.org/latest/img/washedout.png">
+    <img md-card-image src="{{info?.qr_img}}">
     <md-card-content>
-      <p>Here is some content</p>
+      <p>{{info?.myswear}}</p>
     </md-card-content>
     <md-card-actions align="end">
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
+      <md-icon class="md-24" style="margin-top: 5px;color: #ce2626;" >favorite</md-icon>
+      <div style="margin-top: 6px;">{{info?.favor}}</div> 
+      <button md-button>赞</button>
+      <button md-button>分享</button>
     </md-card-actions>
   </md-card>
