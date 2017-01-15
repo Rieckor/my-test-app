@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TitleService } from '../../share/title.service';
+import { SharedData } from '../../core/share-data.service';
 import 'rxjs/add/operator/switchMap';
 
 import { List } from '../list';
@@ -12,6 +13,7 @@ import { ListService } from './lists.service';
   providers: [ListService, TitleService]
 })
 export class ListsViewComponent implements OnInit {
+  myId: number;
   errorMessage: string;
   lists: List[];
   tab: string;
@@ -19,6 +21,7 @@ export class ListsViewComponent implements OnInit {
   ScrollDisabled: boolean = false;
   status: boolean;
   constructor(
+    private share: SharedData,
     private title: TitleService,
     private route: ActivatedRoute,
     private router: Router,
@@ -28,10 +31,23 @@ export class ListsViewComponent implements OnInit {
     this.route.params
       .subscribe(p => {
         this.status = false; // 加载状态初始化
-        this.title.setTitle(p['type']);
+        if (p['type'] === 'index') {
+            this.title.setTitle('人脉列表');
+        }else if ( p['type'] === 'group' ) {
+            this.title.setTitle('群组列表');
+        }else if ( p['type'] === 'precision' ) {
+            this.title.setTitle('精准列表');
+        }
         this.tab = p['type'];
         this.getLists(this.tab, this.page = 1);
       });
+    this.share.getData().subscribe(
+      owner => {
+        if (owner != null) {
+            this.myId = owner.id;
+        }
+      }
+    );
   }
   getLists(type, page) {
     this.listService.getLists(type, page)
@@ -56,8 +72,9 @@ export class ListsViewComponent implements OnInit {
     this.router.navigate([id], { relativeTo: this.route });
   }
   upTop() {
+    console.log(this.myId);
     this.lists.forEach((element, index) => {
-        if (element.id === '8') {
+        if (element.id === this.myId.toString()) {
             this.lists.splice(index, 1);
             this.lists.unshift(element);
         }
