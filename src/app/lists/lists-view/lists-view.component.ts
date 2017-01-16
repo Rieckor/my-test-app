@@ -6,11 +6,12 @@ import 'rxjs/add/operator/switchMap';
 
 import { List } from '../list';
 import { ListService } from './lists.service';
+import { UptopService } from './uptop.service';
 @Component({
   selector: 'app-lists-view',
   templateUrl: './lists-view.component.html',
   styleUrls: ['./lists-view.component.css'],
-  providers: [ListService, TitleService]
+  providers: [ListService, TitleService, UptopService]
 })
 export class ListsViewComponent implements OnInit {
   myId: number;
@@ -21,6 +22,7 @@ export class ListsViewComponent implements OnInit {
   ScrollDisabled: boolean = false;
   status: boolean;
   constructor(
+    private uptop: UptopService,
     private share: SharedData,
     private title: TitleService,
     private route: ActivatedRoute,
@@ -72,11 +74,14 @@ export class ListsViewComponent implements OnInit {
     this.router.navigate([id], { relativeTo: this.route });
   }
   upTop() {
-    console.log(this.myId);
     this.lists.forEach((element, index) => {
+      console.log(element.id);
         if (element.id === this.myId.toString()) {
             this.lists.splice(index, 1);
             this.lists.unshift(element);
+            this.uptop.upTop(this.myId).subscribe(
+                res => { console.log(res); }
+            );
         }
     });
   }

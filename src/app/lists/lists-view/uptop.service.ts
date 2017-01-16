@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
-export class DetailService {
+export class UptopService {
   private detailUrl = 'http://test.irenmai.top/index.php?s=/Home/Test/upTop';  // URL to web API
   constructor (private http: Http) {}
   upTop (id: number): Observable<any[]> {
