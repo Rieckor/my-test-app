@@ -12,7 +12,7 @@ import {Field} from '../../share/field';
 })
 export class BaseComponent implements OnInit {
   status = 1;
-  preImgUrl = 'http://test.irenmai.top/uploads/QR/oV0TBwwZqT-oZAydbvrJhERIOs9o.jpeg';
+  preImgUrl: string;
   user: User;
   data: Field;
   constructor(
@@ -25,6 +25,7 @@ export class BaseComponent implements OnInit {
       user => {
         if (user != null) {
            this.user = user;
+           this.preImgUrl = user.qr_img;
         }
       }
       );
