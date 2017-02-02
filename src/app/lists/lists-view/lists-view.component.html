@@ -37,8 +37,13 @@
 <div *ngIf="!lists && status">暂无内容！</div>
 <div *ngIf="!status">loading...</div>
 
-<span class="app-action" >
+<span *ngIf="!cooltime" class="app-action" >
   <button md-fab (click)="upTop()" >
       <md-icon class="md-48">expand_less</md-icon>
+    </button>
+</span>
+<span *ngIf="cooltime" class="app-action" >
+  <button md-fab disabled>
+      {{cooltime}}
     </button>
 </span>

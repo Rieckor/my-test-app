@@ -6,15 +6,16 @@ import 'rxjs/add/operator/switchMap';
 
 import { List } from '../list';
 import { ListService } from './lists.service';
-import { UptopService } from './uptop.service';
+import { HttpcomService } from '../../share/http.services';
 @Component({
   selector: 'app-lists-view',
   templateUrl: './lists-view.component.html',
   styleUrls: ['./lists-view.component.css'],
-  providers: [ListService, TitleService, UptopService]
+  providers: [ListService, TitleService, HttpcomService]
 })
 export class ListsViewComponent implements OnInit {
   myId: number;
+  cooltime: string;
   errorMessage: string;
   lists: List[];
   tab: string;
@@ -22,7 +23,7 @@ export class ListsViewComponent implements OnInit {
   ScrollDisabled: boolean = false;
   status: boolean;
   constructor(
-    private uptop: UptopService,
+    private httpcom: HttpcomService,
     private share: SharedData,
     private title: TitleService,
     private route: ActivatedRoute,
@@ -73,16 +74,39 @@ export class ListsViewComponent implements OnInit {
     // Navigate with relative link
     this.router.navigate([id], { relativeTo: this.route });
   }
+  // 置顶操作
   upTop() {
-    this.lists.forEach((element, index) => {
-      console.log(element.id);
-        if (element.id === this.myId.toString()) {
-            this.lists.splice(index, 1);
-            this.lists.unshift(element);
-            this.uptop.upTop(this.myId).subscribe(
-                res => { console.log(res); }
+    let url = 'http://test.irenmai.top/index.php?s=/Home/Test/upTop';
+    let body = {'id': this.myId};
+     this.httpcom.connect(url, body).subscribe(
+                res => {
+                  if (res.status === 1) {
+                    this.lists.forEach((element, index) => {
+                        if (element.id === this.myId.toString()) {
+                            this.lists.splice(index, 1);
+                            this.lists.unshift(element);
+                        }
+                    });
+                  }else {
+                      this.countDown(res.message);
+                  }
+                 }
             );
-        }
-    });
   }
+  // 倒计时
+  private countDown(time) {
+    let cnt = setInterval(() => {
+      let date = new Date(time);
+      this.cooltime = date.getMinutes() + ':' + this.fix(date.getSeconds(), 2);
+      time -= 1000;
+      if (time <= 0) {
+        clearInterval(cnt);
+        this.cooltime = null;
+      }
+    }, 1000);
+  }
+  // 保留两位整数
+  private fix(num, length) {
+  return ('' + num).length < length ? ((new Array(length + 1)).join('0') + num).slice(-length) : '' + num;
+}
 }
