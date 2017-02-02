@@ -3,5 +3,6 @@ export class List {
     public id: string,
     public nickname: string,
     public myswear: string,
-    public fan_status: number) { }
+    public fan_status: number,
+    public favor:number) { }
 }

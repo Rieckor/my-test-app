@@ -12,7 +12,8 @@
     <md-card-actions align="end">
       <md-icon class="md-24" style="margin-top: 5px;color: #ce2626;" >favorite</md-icon>
       <div style="margin-top: 6px;">{{info?.favor}}</div> 
-      <button md-button>赞</button>
-      <button md-button>分享</button>
+      <button *ngIf="!sub" (click)="subscribe()" md-button>关注</button>
+      <button *ngIf="sub" disabled md-button>已关注</button>
+      <button md-button >分享</button>
     </md-card-actions>
   </md-card>

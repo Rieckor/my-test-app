@@ -4,19 +4,22 @@ import { Title }     from '@angular/platform-browser';
 
 import { List } from '../list';
 import { DetailService } from './detail.service';
+import { HttpcomService } from '../../share/http.services';
 
 @Component({
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
-  providers: [DetailService]
+  providers: [DetailService, HttpcomService]
 })
 export class DetailComponent implements OnInit {
   info: List[];
+  sub: boolean = false;
   constructor(
     private titleService: Title,
     private route: ActivatedRoute,
     private router: Router,
-    private detailsev: DetailService
+    private detailsev: DetailService,
+    private httpcom: HttpcomService
   ) { }
 
   ngOnInit() {
@@ -39,5 +42,20 @@ export class DetailComponent implements OnInit {
 
   public setTitle( newTitle: string) {
     this.titleService.setTitle( newTitle );
+  }
+  // 点击关注
+  subscribe() {
+    let url = 'http://test.irenmai.top/index.php?s=/Home/Test/subscribe';
+    let data = {'userid': this.info['id']};
+    this.httpcom.connect(url, data ).subscribe(
+      res => {
+        if (res.status === 1) {
+          this.info['favor'] = + this.info['favor'] + 1;
+          this.sub = true;
+        }else {
+          this.sub = true;
+        }
+      }
+    );
   }
 }
