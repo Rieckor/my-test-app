@@ -26,7 +26,7 @@
   <div class="search-results" infinite-scroll  (scrolled)="onScrollDown()" [infiniteScrollDisabled] = 'ScrollDisabled'>
     <md-list-item (click)="getDetail(list?.id)" *ngFor="let list of lists">
       <img md-list-avatar src="{{list?.headimgurl}}">
-      <h3 md-line> {{list?.group_name}} </h3>
+      <h3 md-line> {{list?.nickname}} </h3>
       <p md-line>
         <span> {{list?.province}}.{{list?.city}}</span>
         <span class="demo-2"> -- {{list?.group_intro}} </span>

@@ -41,16 +41,20 @@
                 <div class="weui-cell__ft">全部</div>
             </a>-->
 			
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    <p>性别</p>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">性别</label>
                 </div>
-                <div class="weui-cell__ft">全部</div>
-            </a>
+                <div class="weui-cell__bd">
+                    <select #sex class="weui-select" (change)="setSex(sex.value)" name="sex" style="direction: rtl;">
+                        <option [selected]="item.value === user.spreSex?true:false" [value]="item.value" *ngFor="let item of sexs">{{item.viewValue}}</option>
+                    </select>
+                </div>
+            </div>
             <div class="weui-cell weui-cell_switch">
-				<div class="weui-cell__bd">是否隐身</div>
+				<div class="weui-cell__bd">仅查找有二维码</div>
 				<div class="weui-cell__ft">
-					<input class="weui-switch"  type="checkbox">
+					<input #qr class="weui-switch" [checked]="user.spreQr?true:false" (change)="setQr(qr.checked)"  type="checkbox">
 				</div>
 			</div>
         </div>

@@ -54,7 +54,7 @@
 				<div class="weui-cell weui-cell_switch">
                 <div class="weui-cell__bd">是否展示二维码</div>
                 <div class="weui-cell__ft">
-                    <input #show class="weui-switch" checked="{{user?.is_show}}" ng-model="introduce.show" (change)="alter(show)" type="checkbox">
+                    <input #show class="weui-switch" [checked]="user?.is_show === 1?true:false" ng-model="introduce.show" (change)="alter(show)" type="checkbox">
                 </div>
                 </div>
 			</div>

@@ -32,10 +32,13 @@ export class BaseComponent implements OnInit {
   }
 
   alter(event) {
-    this.data = {'field': 'is_show', 'type': 'Boolean', 'value': event.checked };
+    this.data = {'field': 'is_show_qr', 'type': 'number', 'value': event.checked ? 1 : 0 };
     this.savefield.UpdateField(this.data).subscribe(
       res => {
-        console.log(res);
+        if (res.status === 1) {
+          this.user.is_show === 1 ? this.user.is_show = 0 : this.user.is_show = 1;
+          this.sharedata.setData(this.user);
+        }
       }
     );
   }

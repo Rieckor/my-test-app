@@ -1,5 +1,5 @@
 export interface Field {
-     value: string;
+     value: any;
      field: string;
      type: string;
 }

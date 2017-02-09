@@ -86,6 +86,7 @@ export class ListsViewComponent implements OnInit {
                             this.lists.splice(index, 1);
                             this.lists.unshift(element);
                         }
+                        this.countDown(300000);
                     });
                   }else {
                       this.countDown(res.message);

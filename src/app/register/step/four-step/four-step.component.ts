@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedData } from '../../../core/share-data.service';
+import { User } from '../../../share/user';
 
 @Component({
   selector: 'app-four-step',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FourStepComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  constructor(
+    private sharedata: SharedData
+  ) { }
 
   ngOnInit() {
+    this.sharedata.getData().subscribe(
+      user => {
+        if (user !== null) {
+           this.user = user;
+        }
+      }
+      );
   }
 
 }

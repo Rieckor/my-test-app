@@ -10,4 +10,7 @@ export interface User {
      is_show: number;
      industrys: Array<any>;
      status: number;
+     isopenspre: number;
+     spreSex: number;
+     spreQr: number;
 }
